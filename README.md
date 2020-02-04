@@ -1,5 +1,5 @@
 # emap-petProject 
-https://travis-ci.com/detlassnake/emap-petProject/builds/147407404
+https://travis-ci.com/detlassnake/emap-petProject.svg?branch=master
 
 This application implements CRUD and REST, allow to communicate with database via POST requests and provide CRUD interfaces. 
 
