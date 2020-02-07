@@ -5,6 +5,8 @@ public class Account {
     private AccountStatus accountStatus;
     private Long id;
 
+    public Account() { }
+
     public void setId(Long id) {
         this.id = id;
     }

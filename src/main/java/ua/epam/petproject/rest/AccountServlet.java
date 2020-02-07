@@ -33,10 +33,7 @@ public class AccountServlet extends HttpServlet {
             if (accountList == null) {
                 resp.sendError(404);
             } else {
-                for (int i = 0; i < accountList.size(); i++) {
-                    Account account = accountList.get(i);
-                    writer.println(gson.toJson(account));
-                }
+                writer.println(gson.toJson(accountList));
             }
         } else {
             long accountId = Long.parseLong(id);
@@ -52,7 +49,6 @@ public class AccountServlet extends HttpServlet {
         logger.debug("AccountServlet->Post");
         Account account = gson.fromJson(req.getReader(), Account.class);
         accountService.create(account);
-        resp.sendRedirect("/api/v1/accounts");
     }
 
     @Override
@@ -60,13 +56,15 @@ public class AccountServlet extends HttpServlet {
         logger.debug("AccountServlet->Put");
         Account account = gson.fromJson(req.getReader(), Account.class);
         accountService.update(account.getId(), account);
-        resp.sendRedirect("/api/v1/accounts");
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("AccountServlet->Delete");
-        accountService.delete(Long.parseLong(req.getParameter("id")));
-        resp.sendRedirect("/api/v1/accounts");
+        if (req.getParameter("id") == null){
+            resp.sendError(400, "Invalid parameter id");
+        } else {
+            accountService.delete(Long.parseLong(req.getParameter("id")));
+        }
     }
 }

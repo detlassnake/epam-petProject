@@ -32,4 +32,6 @@ Italian.
 
 Technology stack: Java, MySQL, JDBC, Servlets, Liquibase, JUnit.
 
-https://epam-petproject.herokuapp.com/?lang=en
+Link to project: https://epam-petproject.herokuapp.com
+
+Link to project documentation: https://epam-petproject.herokuapp.com/documentation

@@ -33,13 +33,11 @@ public class DeveloperServlet extends HttpServlet {
         logger.debug("DeveloperServlet->Get");
         String id = req.getParameter("id");
         if (id == null) {
-            List<Developer> developers = developerService.read();
-            if (developers == null) {
+            List<Developer> developerList = developerService.read();
+            if (developerList == null) {
                 resp.sendError(404);
             } else {
-                for (Developer developer : developers) {
-                    writer.println(gson.toJson(developer));
-                }
+                writer.println(gson.toJson(developerList));
             }
         } else {
             long developerId = Long.parseLong(id);
@@ -57,7 +55,6 @@ public class DeveloperServlet extends HttpServlet {
         developer.setDeveloperSkillsSet(skillService.create(developer.getDeveloperSkillsSet()));
         developer.setDeveloperAccount(accountService.create(developer.getDeveloperAccount()));
         developerService.create(developer);
-        resp.sendRedirect("/api/v1/developers");
     }
 
     @Override
@@ -68,7 +65,6 @@ public class DeveloperServlet extends HttpServlet {
         developerService.update(developerWithId.getId(), developer);
         accountService.update(developerWithId.getDeveloperAccount().getId(), developer.getDeveloperAccount());
         skillService.update(developerWithId.getDeveloperSkillsSet(), developer.getDeveloperSkillsSet());
-        resp.sendRedirect("/api/v1/developers");
     }
 
     @Override
@@ -76,8 +72,10 @@ public class DeveloperServlet extends HttpServlet {
         logger.debug("DeveloperServlet->Delete");
         long id = Long.parseLong(req.getParameter("id"));
         Developer developerWithId = developerService.readById(id);
-        developerService.delete(id);
-        accountService.delete(developerWithId.getDeveloperAccount().getId());
-        resp.sendRedirect("/api/v1/developers");
+        if (req.getParameter("id") == null){
+            resp.sendError(400, "Invalid parameter id");
+        } else {
+            developerService.delete(id);
+            accountService.delete(developerWithId.getDeveloperAccount().getId());        }
     }
 }

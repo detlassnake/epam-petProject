@@ -1,0 +1,448 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a REST API epam-petproject",
+    "version": "1.0.0",
+    "title": "epam-petproject",
+    "termsOfService": "https://github.com/detlassnake",
+    "contact": {
+      "email": "detlassnake@gmail.com"
+    }
+  },
+  "host": "epam-petproject.herokuapp.com",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "skill",
+      "description": "Developer`s skill"
+    },
+    {
+      "name": "account",
+      "description": "Developer`s account"
+    },
+    {
+      "name": "developer",
+      "description": "Developer`s info"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/api/v1/skills": {
+      "get": {
+        "tags": [
+          "skill"
+        ],
+        "summary": "Get all skills, or get skill by id",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of skill",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Skill"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "skill"
+        ],
+        "summary": "Add a new skill",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "skill",
+            "schema": {
+              "$ref": "#/definitions/SkillNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "skill"
+        ],
+        "summary": "Update an existing skill",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "skill",
+            "schema": {
+              "$ref": "#/definitions/Skill"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "skill"
+        ],
+        "summary": "Delete skill",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "ID of skill",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/accounts": {
+      "get": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Get all accounts, or get account by id",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of account",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Add a new account",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "account",
+            "schema": {
+              "$ref": "#/definitions/AccountNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Update an existing account",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "account",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "account"
+        ],
+        "summary": "Delete account",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of account",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/developers": {
+      "get": {
+        "tags": [
+          "developer"
+        ],
+        "summary": "Get all developers, or get developer by id",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of developer",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "items": {
+                "$ref": "#/definitions/Developer"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "developer"
+        ],
+        "summary": "Add a new developer",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "developer",
+            "schema": {
+              "$ref": "#/definitions/DeveloperNoId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "developer"
+        ],
+        "summary": "Update an existing developer",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "developer",
+            "schema": {
+              "$ref": "#/definitions/DeveloperToEdit"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "developer"
+        ],
+        "summary": "Delete developer",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id of developer",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Skill": {
+      "type": "object",
+      "properties": {
+        "skill": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
+    "SkillNoId": {
+      "type": "object",
+      "properties": {
+        "skill": {
+          "type": "string"
+        }
+      }
+    },
+    "Account": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "accountStatus": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "BANNED",
+            "DELETED"
+          ]
+        },
+        "id": {
+          "type": "integer"
+        }
+      }
+    },
+    "AccountNoId": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "accountStatus": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "BANNED",
+            "DELETED"
+          ]
+        }
+      }
+    },
+    "Developer": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "developerSkills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Skill"
+          }
+        },
+        "developerAccount": {
+          "$ref": "#/definitions/Account"
+        }
+      }
+    },
+    "DeveloperNoId": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "developerSkills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkillNoId"
+          }
+        },
+        "developerAccount": {
+          "$ref": "#/definitions/AccountNoId"
+        }
+      }
+    },
+    "DeveloperToEdit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "developerSkills": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SkillNoId"
+          }
+        },
+        "developerAccount": {
+          "$ref": "#/definitions/AccountNoId"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

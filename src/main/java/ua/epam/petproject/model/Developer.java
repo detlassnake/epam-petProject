@@ -9,6 +9,8 @@ public class Developer {
     private String name;
     private Long id;
 
+    public Developer() { }
+
     public void setId(Long id) {
         this.id = id;
     }

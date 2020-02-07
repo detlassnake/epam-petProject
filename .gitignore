@@ -4,3 +4,5 @@ tomcat.5000
 out/
 .idea/*
 *.iml
+*.log
+

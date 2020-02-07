@@ -4,6 +4,8 @@ public class Skill {
     private String skill;
     private Long id;
 
+    public Skill() { }
+
     public void setSkill(String skill) {
         this.skill = skill;
     }

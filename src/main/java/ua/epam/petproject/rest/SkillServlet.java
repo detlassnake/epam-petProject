@@ -34,10 +34,7 @@ public class SkillServlet extends HttpServlet {
             if (skillList == null) {
                 resp.sendError(404);
             } else {
-                for (int i = 0; i < skillList.size(); i++) {
-                    Skill skill = skillList.get(i);
-                    writer.println(gson.toJson(skill));
-                }
+                writer.println(gson.toJson(skillList));
             }
         }
         else {
@@ -54,7 +51,6 @@ public class SkillServlet extends HttpServlet {
         logger.debug("SkillServlet->Post");
         Skill skill = gson.fromJson(req.getReader(), Skill.class);
         skillService.create(skill);
-        resp.sendRedirect("/api/v1/skills");
     }
 
     @Override
@@ -62,13 +58,15 @@ public class SkillServlet extends HttpServlet {
         logger.debug("SkillServlet->Put");
         Skill skill = gson.fromJson(req.getReader(), Skill.class);
         skillService.update(skill.getId(), skill);
-        resp.sendRedirect("/api/v1/skills");
     }
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.debug("SkillServlet->Delete");
-        skillService.delete(Long.parseLong(req.getParameter("id")));
-        resp.sendRedirect("/api/v1/skills");
+        if (req.getParameter("id") == null){
+            resp.sendError(400, "Invalid parameter id");
+        } else {
+            skillService.delete(Long.parseLong(req.getParameter("id")));
+        }
     }
 }
