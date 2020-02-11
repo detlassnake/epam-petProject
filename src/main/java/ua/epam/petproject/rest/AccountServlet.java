@@ -17,7 +17,7 @@ import java.util.List;
 
 @WebServlet(name = "AccountServlet", urlPatterns = "/api/v1/accounts")
 public class AccountServlet extends HttpServlet {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(AccountServlet.class);
     private AccountService accountService = new AccountService();
     private Gson gson = new Gson();
 

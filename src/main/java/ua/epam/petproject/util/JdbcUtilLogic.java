@@ -2,14 +2,13 @@ package ua.epam.petproject.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.epam.petproject.service.AccountService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JdbcUtilLogic {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(JdbcUtilLogic.class);
 
     public static void writeToDB(String sql, long id) {
         try (Connection connection = ConnectionUtil.getConnection();

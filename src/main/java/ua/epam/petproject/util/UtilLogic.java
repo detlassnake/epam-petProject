@@ -3,7 +3,6 @@ package ua.epam.petproject.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.epam.petproject.model.AccountStatus;
-import ua.epam.petproject.service.AccountService;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class UtilLogic {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(UtilLogic.class);
 
     public static ArrayList<String> getProperties () {
         logger.debug("UtilLogic->Get properties");

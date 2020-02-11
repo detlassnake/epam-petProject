@@ -6,7 +6,6 @@ import ua.epam.petproject.mapper.ObjectMapper;
 import ua.epam.petproject.model.Developer;
 import ua.epam.petproject.model.Skill;
 import ua.epam.petproject.repository.DeveloperRepository;
-import ua.epam.petproject.service.AccountService;
 import ua.epam.petproject.util.ConnectionUtil;
 import ua.epam.petproject.util.JdbcQueryStorageUtil;
 import ua.epam.petproject.util.JdbcUtilLogic;
@@ -17,7 +16,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class JdbcDeveloperRepository implements DeveloperRepository {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(JdbcDeveloperRepository.class);
 
     public Developer save(Developer developer) {
         logger.debug("JdbcDeveloperRepository->Save");

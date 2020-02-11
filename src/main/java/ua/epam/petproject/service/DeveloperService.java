@@ -9,7 +9,7 @@ import ua.epam.petproject.repository.jdbc.JdbcDeveloperRepository;
 import java.util.ArrayList;
 
 public class DeveloperService {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(DeveloperService.class);
     private DeveloperRepository developerRepository;
 
     public DeveloperService() {

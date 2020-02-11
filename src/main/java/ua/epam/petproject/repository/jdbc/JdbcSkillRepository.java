@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import ua.epam.petproject.mapper.ObjectMapper;
 import ua.epam.petproject.model.Skill;
 import ua.epam.petproject.repository.SkillRepository;
-import ua.epam.petproject.service.AccountService;
 import ua.epam.petproject.util.ConnectionUtil;
 import ua.epam.petproject.util.JdbcQueryStorageUtil;
 import ua.epam.petproject.util.JdbcUtilLogic;
@@ -14,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class JdbcSkillRepository implements SkillRepository {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(JdbcSkillRepository.class);
 
     public Skill save(Skill skill) {
         logger.debug("JdbcSkillRepository->Save");

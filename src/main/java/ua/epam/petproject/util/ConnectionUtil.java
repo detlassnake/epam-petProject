@@ -3,13 +3,12 @@ package ua.epam.petproject.util;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.epam.petproject.service.AccountService;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class ConnectionUtil {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(ConnectionUtil.class);
     private static BasicDataSource ds = new BasicDataSource();
     static {
 

@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.epam.petproject.model.Skill;
-import ua.epam.petproject.service.AccountService;
 import ua.epam.petproject.service.SkillService;
 
 import javax.servlet.ServletException;
@@ -18,7 +17,7 @@ import java.util.List;
 
 @WebServlet(name = "SkillServlet", urlPatterns = "/api/v1/skills")
 public class SkillServlet extends HttpServlet {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(SkillServlet.class);
     private SkillService skillService = new SkillService();
     private Gson gson = new Gson();
 

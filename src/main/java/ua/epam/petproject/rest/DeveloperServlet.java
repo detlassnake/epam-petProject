@@ -19,7 +19,7 @@ import java.util.List;
 
 @WebServlet(name = "DeveloperServlet", urlPatterns = "/api/v1/developers")
 public class DeveloperServlet extends HttpServlet {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(DeveloperServlet.class);
     private DeveloperService developerService = new DeveloperService();
     private AccountService accountService = new AccountService();
     private SkillService skillService = new SkillService();

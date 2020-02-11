@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class SkillService {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(SkillService.class);
     private SkillRepository skillRepository;
 
     public SkillService() {

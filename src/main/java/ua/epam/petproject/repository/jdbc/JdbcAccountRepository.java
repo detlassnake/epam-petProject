@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import ua.epam.petproject.mapper.ObjectMapper;
 import ua.epam.petproject.model.Account;
 import ua.epam.petproject.repository.AccountRepository;
-import ua.epam.petproject.service.AccountService;
 import ua.epam.petproject.util.ConnectionUtil;
 import ua.epam.petproject.util.JdbcQueryStorageUtil;
 import ua.epam.petproject.util.JdbcUtilLogic;
@@ -14,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class JdbcAccountRepository implements AccountRepository {
-    private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
+    private static final Logger logger = LoggerFactory.getLogger(JdbcAccountRepository.class);
 
     public Account save(Account account) {
         logger.debug("JdbcAccountRepository->Save");
